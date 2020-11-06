@@ -55,7 +55,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    fetch(url)
+    fetch(`https://cors-anywhere.herokuapp.com/${url}`)
       .then(response => response.json())
       .then(data => {
         return setData(data.data);
@@ -102,7 +102,7 @@ const Main = () => {
             <div className="card-content">
               {
                 data.map((item) =>
-                  <li className="flow-text">{item}</li>
+                  <li key={item} className="flow-text">{item}</li>
                 )
               }
               {data.length === 0 &&
